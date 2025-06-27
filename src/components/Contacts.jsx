@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { v4 } from "uuid"
 
 import ContactsList from "./ContactsList"
@@ -35,6 +35,12 @@ function Contacts() {
     setContacts((contacts) => [...contacts, newContact])
     setContact({ name: "", lastName: "", email: "", phone: "" }) //empty inputs
   }
+
+  const deleteHandler = (id) => {
+    const newContacts = contacts.filter((contact) => contact.id !== id)
+    setContacts(newContacts)
+  }
+
   return (
     <div>
       <div>
@@ -52,7 +58,7 @@ function Contacts() {
         <button onClick={addHandler}>Add Contatc</button>
       </div>
       {alert && <p>{alert}</p>}
-      <ContactsList contacts={contacts} />
+      <ContactsList contacts={contacts} deleteHandler={deleteHandler} />
     </div>
   )
 }
