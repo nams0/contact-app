@@ -56,7 +56,7 @@ function Contacts() {
           />
         ))}
 
-        <button onClick={addHandler}>Add Contatc</button>
+        <button onClick={addHandler}>Add Contact</button>
       </div>
       <div className={styles.alert}>{alert && <p>{alert}</p>}</div>
       <ContactsList contacts={contacts} deleteHandler={deleteHandler} />
